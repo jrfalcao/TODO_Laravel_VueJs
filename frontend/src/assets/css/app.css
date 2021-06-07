@@ -1,0 +1,7 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');
+@import '../../../node_modules/sweetalert2/dist/sweetalert2.min.css';
+
+* {
+    font-family: 'Mandali', sans-serif;
+}
