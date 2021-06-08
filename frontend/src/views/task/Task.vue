@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Header />
     <div class="card">
       <div class="card-header">Tarefas Cadastradas</div>
       <div class="card-body">
@@ -23,7 +24,24 @@
 </template>
 
 <script>
+import Header from '../../components/Header.vue'
 export default {
-  name: 'Task'
+  name: 'Task',
+
+  components: {
+    Header
+  },
+
+  methods: {
+    ...mapActions('task', ['ActionLogin']),
+    async submit () {
+      try {
+        await this.ActionLogin(this.form)
+        this.$router.push({ name: 'Task' })
+      } catch (error) {
+        this.$swal('Login não efetuado. Verifique seus dados!!!')
+      }
+    }
+  }
 }
 </script>
