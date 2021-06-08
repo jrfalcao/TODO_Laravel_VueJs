@@ -3,7 +3,7 @@ import * as storage from '@/http/storage'
 import services, { api } from '@/http'
 
 export const ActionLogin = async ({ dispatch }, payload) => {
-  return services.auth.login(api, payload.email, payload.password).then((res, err) => {
+  return services.auth.login(api, payload.email, payload.password).then((res) => {
     dispatch('ActionSetUser', res.data.user)
     dispatch('ActionSetToken', res.data.token)
     return res

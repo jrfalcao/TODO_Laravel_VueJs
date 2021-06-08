@@ -25,6 +25,7 @@
 
 <script>
 import Header from '../../components/Header.vue'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Task',
 
@@ -33,8 +34,9 @@ export default {
   },
 
   methods: {
-    ...mapActions('task', ['ActionLogin']),
-    async submit () {
+    ...mapActions('task', ['ActionGetTasks']),
+    ...mapState('auth'),
+    async getTasks () {
       try {
         await this.ActionLogin(this.form)
         this.$router.push({ name: 'Task' })
